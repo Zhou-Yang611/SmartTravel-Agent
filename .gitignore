@@ -1,0 +1,23 @@
+# ================= 敏感与配置文件 =================
+.env
+.env.local
+project.config.json  # 小程序本地配置(含个人appid等，建议不传)
+miniprogram_npm/
+
+# ================= Python 后端忽略项 =================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+*.sqlite3
+backend/vector_store/  # 本地 ChromaDB 数据库文件太大，不要传
+backend/data/*.pdf     # 如果有大文件也忽略
+
+# ================= 系统与编辑器忽略项 =================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

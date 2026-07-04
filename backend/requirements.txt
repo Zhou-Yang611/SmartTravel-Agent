@@ -1,0 +1,20 @@
+# ================= Web 框架与基础工具 (使用最新版) =================
+fastapi
+uvicorn[standard]
+python-dotenv
+pydantic
+pydantic-settings  # Pydantic v2 将 settings 独立出来了，必须加这个
+httpx              # 异步 HTTP 客户端
+
+# ================= AI 核心框架 (锁定主流大版本，保证代码兼容性) =================
+# LangChain 0.3.x 是目前最新的大版本，修复了大量 0.1/0.2 的遗留问题
+langchain>=0.3.0,<0.4.0
+langchain-core>=0.3.0,<0.4.0
+langchain-community>=0.3.0,<0.4.0
+
+# LangGraph 0.2.x 是目前多智能体开发最稳定的版本
+langgraph>=0.2.0,<0.3.0
+
+# ================= 大模型与向量库 (使用最新版) =================
+dashscope          # 阿里云通义千问官方 SDK
+chromadb           # 本地轻量级向量数据库

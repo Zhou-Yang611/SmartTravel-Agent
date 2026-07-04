@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 顶部输入区 -->
+  <view class="input-card">
+    <textarea 
+      class="input-box" 
+      placeholder="告诉 Agent 你的旅行想法...\n例：周末去杭州玩2天，预算2000，不想去人挤人的地方" 
+      value="{{userInput}}" 
+      bindinput="onInput" 
+      auto-height 
+      maxlength="500"
+    />
+    <view class="btn-group">
+      <button class="btn-stop" wx:if="{{isLoading}}" bindtap="onStop">停止生成</button>
+      <button class="btn-send" bindtap="onSend" disabled="{{isLoading || !userInput}}">
+        {{isLoading ? 'Agent 规划中...' : '生成专属行程'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 状态与思考过程展示 -->
+  <view class="status-card" wx:if="{{statusText}}">
+    <view class="status-header">🤖 Agent 思考与执行状态</view>
+    <text class="status-text">{{statusText}}</text>
+  </view>
+
+  <!-- 行程结果展示区 -->
+  <view class="result-card" wx:if="{{formattedItinerary}}">
+    <view class="result-header">📅 您的专属行程</view>
+    <!-- 使用 rich-text 渲染转换后的 HTML -->
+    <rich-text nodes="{{formattedItinerary}}"></rich-text>
+  </view>
+</view>
